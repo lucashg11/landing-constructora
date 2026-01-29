@@ -4,7 +4,14 @@
 @theme {
   --font-heading: [ "Montserrat Variable", "sans-serif"];
   --font-body: [ "Inter", "sans-serif"];
-  --color-vial-yellow: "#fbbf24";
-  --color-vial-dark: "#111827";
-  --color-vial-gray: "#4b5563";
+  --yellow: "#fbbf24";
+  --dark: "#111827";
+  --gray: "#4b5563";
+}
+
+@layer base {
+  :root {
+    --font-heading: "Montserrat Variable", sans-serif;
+    --font-body: "Inter", sans-serif;
+  }
 }
