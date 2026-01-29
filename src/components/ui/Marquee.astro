@@ -1,0 +1,40 @@
+---
+const clients = [
+  { name: 'Cliente 1', logo: '/assets/logos/client1.png' },
+  { name: 'Cliente 2', logo: '/assets/logos/client2.png' },
+  { name: 'Cliente 3', logo: '/assets/logos/client3.png' },
+  { name: 'Cliente 4', logo: '/assets/logos/client4.png' },
+  { name: 'Cliente 5', logo: '/assets/logos/client5.png' },
+  { name: 'Cliente 6', logo: '/assets/logos/client6.png' },
+];
+
+const infiniteClients = [...clients, ...clients];
+---
+
+<div class="animate-marquee whitespace-nowrap flex items-center gap-12 md:gap-24">
+      {infiniteClients.map((client) => (
+        <div class="flex items-center justify-center w-32 md:w-48 h-20 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+          <img 
+            src={client.logo} 
+            alt={client.name} 
+            class="max-h-12 w-auto object-contain"
+          />
+        </div>
+      ))}
+</div>
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    display: inline-flex;
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Pausar al pasar el ratón para accesibilidad */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+</style>
