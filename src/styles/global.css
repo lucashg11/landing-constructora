@@ -1,17 +1,10 @@
 @import "tailwindcss";
 @import "tailwind-animations";
 
-
 @theme {
-    fontFamily: {
-        heading: ["Montserrat Variable", "sans-serif"],
-        body: ["Inter", "sans-serif"],
-    },
-    colors:{
-        vial: {
-            yellow: '#fbbf24',
-            dark: '#111827',
-            gray: '#4b5563',
-        }
-    }
+  --font-heading: [ "Montserrat Variable", "sans-serif"];
+  --font-body: [ "Inter", "sans-serif"];
+  --color-vial-yellow: "#fbbf24";
+  --color-vial-dark: "#111827";
+  --color-vial-gray: "#4b5563";
 }
