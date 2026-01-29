@@ -5,13 +5,17 @@ import Hero from '../components/sections/Hero.astro';
 import About from '../components/sections/About.astro';
 import Clients from '../components/sections/Clients.astro';
 import Services from '../components/sections/Services.astro';
+import Banner from '../components/ui/Banner.astro';
 
 ---
 
 <Layout title="Stralla Vial">
-	<Navbar />
-    <Hero />
-    <About />
-    <Clients />
-    <Services />
+	<main>
+        <Navbar />
+        <Hero />
+        <About />
+        <Clients />
+        <Services />
+        <Banner />
+    </main>
 </Layout>
