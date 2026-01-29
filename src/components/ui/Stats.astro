@@ -1,0 +1,25 @@
+---
+const stats = [
+    {
+        label: "Años de Experiencia",
+        value: "25+",
+    },
+    {
+        label: "Proyectos Completados",
+        value: "150+",
+    },
+    {
+        label: "Clientes Satisfechos",
+        value: "100+",
+    },
+];
+---
+
+<div class="grid grid-cols-2 gap-8 border-t border-slate-100 pt-8">
+          {stats.map(stat => (
+            <div>
+              <p class="font-heading text-3xl font-black text-slate-900">{stat.value}</p>
+              <p class="font-body text-sm text-slate-500 uppercase tracking-wide font-medium">{stat.label}</p>
+            </div>
+          ))}
+</div>

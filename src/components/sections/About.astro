@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import companyTeam from '../../assets/company-team.webp';
+import Stats from '../ui/Stats.astro';
+
+
+---
+
+<section id="empresa" class="py-24 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      
+      <div class="relative lg:w-1/2">
+        <div class="absolute -top-4 -left-4 w-24 h-24 bg-yellow-500/20 z-0"></div>
+        <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+          <Image 
+            src={companyTeam} 
+            alt="Equipo técnico de Stralla Vial en obra" 
+            class="w-full h-[500px] object-cover"
+          />
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-slate-900 p-8 rounded-xl shadow-xl hidden md:block">
+          <p class="text-yellow-500 font-heading text-4xl font-black italic">ESTE ES</p>
+          <p class="text-white font-heading text-xl font-bold tracking-tighter">NUESTRO COMPROMISO</p>
+        </div>
+      </div>
+
+      <div class="lg:w-1/2">
+        <h2 class="font-heading text-sm font-bold text-yellow-600 uppercase tracking-widest mb-3">Sobre Nosotros</h2>
+        <h3 class="font-heading text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+          Solidez técnica respaldada por <span class="text-yellow-500">trayectoria.</span>
+        </h3>
+        <p class="font-body text-slate-600 text-lg mb-6 leading-relaxed">
+          Fundada en Puerto General San Martín, <span class="text-yellow-600">Stralla Vial</span> ha evolucionado de una empresa de servicios locales a un referente regional en ingeniería y construcción vial. 
+        </p>
+        <p class="font-body text-slate-600 text-lg mb-8 leading-relaxed">
+          Nos especializamos en brindar soluciones integrales tanto al sector público como privado, manteniendo un compromiso inquebrantable con la seguridad, la precisión técnica y el cumplimiento de plazos.
+        </p>
+
+        <Stats />
+      </div>
+
+    </div>
+  </div>
+</section>
