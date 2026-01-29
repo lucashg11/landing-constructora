@@ -1,77 +1,70 @@
 ---
 import { Image } from 'astro:assets';
-import serviceVial from '../../assets/service-vial.webp';
-
-
-
-
-const mainServices = [
+import fleetTrucks from "../../assets/fleet-trucks.webp";
+const fleet = [
   {
-    title: "Ingeniería y Obras Viales",
-    desc: "Pavimentación asfáltica, hormigón, bacheo y mantenimiento integral de infraestructuras.",
-    image: serviceVial,
-    size: "lg" 
+    name: "Excavadoras sobre Orugas",
+    specs: ["Peso: 22 TN", "Cuchara: 1.2 m³", "Profundidad: 6.7m"],
+    image: fleetTrucks,
+    category: "Movimiento de Suelos"
   },
   {
-    title: "Movimiento de Suelos",
-    desc: "Nivelación láser, excavaciones masivas y terraplenes de alta densidad.",
-    image: serviceVial,
-    size: "sm"
+    name: "Motoniveladoras",
+    specs: ["Potencia: 185 HP", "Vertedera: 3.7m", "Transmisión: Direct Drive"],
+    image: fleetTrucks,
+    category: "Nivelación"
   },
   {
-    title: "Alquiler de Equipos",
-    desc: "Rent-Service con operadores certificados y mantenimiento en obra.",
-    image: serviceVial,
-    size: "sm"
+    name: "Palas Cargadoras",
+    specs: ["Capacidad: 3.0 m³", "Carga útil: 5000 kg", "Altura de descarga: 3.2m"],
+    image: fleetTrucks,
+    category: "Logística"
   },
   {
-    title: "Obras Hidráulicas",
-    desc: "Construcción y mantenimiento de sistemas de agua y saneamiento.",
-    image: serviceVial,
-    size: "lg"
-  },
-  {
-    title: "Izajes de Carga",
-    desc: "Izajes de carga pesada con grúas de alta capacidad.",
-    image: serviceVial,
-    size: "lg"
-  },
-  {
-    title: "Transporte de Maquinaria",
-    desc: "Transporte de maquinaria pesada con grúas de alta capacidad.",
-    image: serviceVial,
-    size: "sm"
-  }   
-
+    name: "Rodillos Compactadores",
+    specs: ["Ancho: 2.1m", "Frecuencia: 30/33 Hz", "Fuerza Centrífuga: 250 kN"],
+    image: fleetTrucks,
+    category: "Pavimentación"
+  }
 ];
 ---
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {mainServices.map((service) => (
-        <div class={` group relative overflow-hidden rounded-3xl bg-slate-900 ${service.size === 'lg' ? 'md:col-span-2' : ''} h-[400px]`}>
-          <Image 
-            src={service.image} 
-            alt={service.title}
-            loading="lazy" 
-            class="absolute inset-0 w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700"
-          />
-          
-          <div class="absolute inset-0 bg-gradient-to from-slate-900 via-slate-900/20 to-transparent"></div>
 
-          <div class="absolute inset-0 p-8 flex flex-col justify-end bg-slate-900/50 md:bg-slate-900/20 md:group-hover:bg-slate-900/50 transition-colors duration-300">
-            <div class="transform md:group-hover:-translate-y-4 transition-transform duration-300">
-              <h4 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
-                {service.title}
-              </h4>
-              <p class="font-body text-slate-300 max-w-md mb-6 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                {service.desc}
-              </p>
-              <a href="/" class="flex items-center gap-2 text-vial-yellow font-bold uppercase tracking-widest text-sm bg-yellow-500 px-4 py-2 rounded-full w-fit hover:bg-yellow-600 hover:text-white transition-colors duration-300">
-                Ver detalles 
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {fleet.map((item) => (
+        <div class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:border-vial-yellow transition-all duration-300 shadow-sm hover:shadow-xl">
+          <div class="relative h-56 overflow-hidden bg-slate-200">
+            <Image 
+              src={item.image} 
+              alt={item.name} 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                {item.category}
+              </span>
             </div>
+          </div>
+
+          <div class="p-6">
+            <h4 class="font-heading text-xl font-bold text-slate-900 mb-4">{item.name}</h4>
+            
+            <ul class="space-y-2 mb-8">
+              {item.specs.map(spec => (
+                <li class="flex items-center gap-2 text-sm text-slate-600 font-body italic">
+                  <div class="w-1.5 h-1.5 rounded-full bg-vial-yellow"></div>
+                  {spec}
+                </li>
+              ))}
+            </ul>
+
+            <a 
+              href="#contacto" 
+              class="block w-full text-center py-3 bg-white border-2 border-slate-900 text-slate-900 font-bold rounded-xl hover:bg-slate-900 hover:text-white transition-all text-sm uppercase tracking-wider"
+            >
+              Consultar Equipo
+            </a>
           </div>
         </div>
       ))}
