@@ -5,13 +5,13 @@
                             <input type="text" name="name" id="name" placeholder="Ej: Juan Perez" class="bg-slate-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-yellow-500 transition-all outline-none">
                         </div>
                         <div class="flex flex-col">
-                            <label class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Empresa</label>
-                            <input type="text" placeholder="Nombre de su compañía" class="bg-slate-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-yellow-500 transition-all outline-none" />
+                            <label class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2" for="company">Empresa</label>
+                            <input type="text" name="company" id="company" placeholder="Nombre de su compañía" class="bg-slate-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-yellow-500 transition-all outline-none" />
                         </div>
                     </div>
                     <div class="flex flex-col">
-                        <label class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Asunto del mensaje</label>
-                        <select class="bg-slate-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-yellow-500 transition-all outline-none appearance-none">
+                        <label class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2" for="subject">Asunto del mensaje</label>
+                        <select name="subject" id="subject" class="bg-slate-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-yellow-500 transition-all outline-none appearance-none">
                             <option>Ingeniería Vial / Pavimento</option>
                             <option>Alquiler de Maquinaria</option>
                             <option>Movimiento de Suelos</option>
@@ -19,8 +19,8 @@
                         </select>
                     </div>
                     <div class="flex flex-col">
-                        <label class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Mensaje</label>
-                        <textarea rows="4" placeholder="Describa brevemente su proyecto..." class="bg-slate-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-yellow-500 transition-all outline-none resize-none"></textarea>
+                        <label class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2" for="message">Mensaje</label>
+                        <textarea name="message" rows="4" placeholder="Describa brevemente su proyecto..." class="bg-slate-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-yellow-500 transition-all outline-none resize-none"></textarea>
                     </div>
                     <button class="w-full max-w-xs bg-yellow-500 text-slate-900 font-black py-5  rounded-xl hover:bg-yellow-400 transition-all uppercase tracking-[0.2em] text-sm shadow-xl active:scale-95">
                         Enviar Solicitud 
