@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/sections/Navbar.astro";
+import Footer from "../components/sections/Footer.astro";
+import Banner from "../components/ui/Banner.astro";
+import heroServices from "../assets/hero-services.webp";
+import serviceVial from "../assets/service-vial.webp";
+
+const detailedServices = [
+  {
+    title: "Ingeniería y Pavimentación Vial",
+    description: "Especialistas en la ejecución de carpetas asfálticas en caliente, hormigón de alta resistencia para tránsito pesado y bacheo profundo. Realizamos el ciclo completo: desde el diseño de la traza hasta la señalización final.",
+    features: ["Asfalto en caliente", "Pavimentos de hormigón H30", "Señalización vial reflectiva"],
+    image: serviceVial,
+    reversed: false
+  },
+  {
+    title: "Movimiento de Suelos y Nivelación",
+    description: "Contamos con tecnología de nivelación láser y GPS para garantizar precisiones milimétricas en grandes superficies. Ideal para plataformas logísticas, naves industriales y barrios cerrados.",
+    features: ["Nivelación láser", "Compactación de suelos", "Excavaciones masivas"],
+    image: serviceVial,
+    reversed: true
+  },
+  {
+    title: "Alquiler de Maquinaria (Rent-Service)",
+    description: "Ofrecemos soluciones flexibles de alquiler de flota pesada con o sin operador. Todos nuestros equipos cuentan con certificado de mantenimiento y seguro técnico, garantizando operatividad 24/7 en su obra.",
+    features: ["Equipos Caterpillar/John Deere", "Logística propia de traslado", "Asistencia mecánica en obra"],
+    image: serviceVial,
+    reversed: false
+  }
+];
+---
+
+<Layout title="Servicios" transition:animate="fade">
+    <Navbar />
+    <main>
+        <section class="bg-slate-900 h-dvh py-24 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 opacity-20">
+                <Image src={heroServices} alt="" class="w-full h-full object-cover" loading="eager" fetchpriority="high" />
+            </div>
+            <div class="ralative z-10 max-w-7xl mx-auto px-6 text-center">
+                <h1 class="font-heading text-5xl md:text-7xl font-black text-white mb-6" transition:name="main-title">Nuestras <span class="text-yellow-500">Soluciones</span></h1>
+                <p class="font-body text-slate-400 text-xl max-w-2xl mx-auto"> Infraestructura robusta y servicios de ingenieria adaptados a las exigencias del mercado industrial actual.</p>
+            </div>
+        </section>
+        <section class="py-24 space-y-32">
+            {detailedServices.map((service) => (
+                <div class="max-w-7xl mx-auto px-6">
+                <div class={`flex flex-col ${service.reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 lg:gap-20`}>
+                    
+                    <div class="w-full md:w-1/2 relative">
+                    <div class="absolute -inset-4 bg-vial-yellow/20 rounded-3xl translate-x-4 translate-y-4"></div>
+                    <Image 
+                        src={service.image} 
+                        alt={service.title} 
+                        class="relative z-10 rounded-2xl shadow-2xl w-full h-[400px] object-cover"
+                    />
+                    </div>
+
+                    <div class="w-full md:w-1/2">
+                    <h2 class="font-heading text-4xl font-black text-slate-900 mb-6">{service.title}</h2>
+                    <p class="font-body text-slate-600 text-lg leading-relaxed mb-8">
+                        {service.description}
+                    </p>
+                    <ul class="space-y-4">
+                        {service.features.map(feature => (
+                        <li class="flex items-center gap-3 font-heading font-bold text-slate-800">
+                            <svg class="w-6 h-6 text-vial-yellow" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            {feature}
+                        </li>
+                        ))}
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            ))}
+        </section>
+        <Banner />
+    </main>
+    <Footer />
+</Layout>
