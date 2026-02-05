@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/sections/Navbar.astro";
+import Footer from "../components/sections/Footer.astro";
+import Banner from "../components/ui/Banner.astro";
+import { Image } from "astro:assets";
+import heroImg from "../assets/hero-services.webp";
+
+
+const stats = [
+  { label: "KM PAVIMENTADOS", value: "+500", icon: "road" },
+  { label: "OBRAS FINALIZADAS", value: "120", icon: "check" },
+  { label: "EQUIPOS PROPIOS", value: "45", icon: "truck" },
+  { label: "AÑOS DE EXPERIENCIA", value: "25", icon: "calendar" }
+];
+
+const badges = [
+  "Certificación ISO 9001",
+  "Capacidad Técnica Vial Nacional",
+  "Seguridad Industrial Nivel 3",
+  "Expertos en Suelos Hídricos"
+];
+---
+
+<Layout title="Nosotros | Stralla Vial" transition:animate="fade">
+    <Navbar />
+    <main class="bg-white ">
+        <section class="relative py-32 bg-slate-900 overflow-hidden ">
+            <div class="absolute right-0 top-0 w-1/2 h-full opacity-30 grayscale">
+                <Image src={heroImg} alt="Maquinaria Stralla" class="w-full h-full object-cover" />
+            </div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <h2 class="font-heading text-yellow-500 text-sm font-black tracking-[0.4em] mb-4 uppercase" transition:name="sub">Trayectoria y Solidez</h2>
+                <h1 class="font-heading text-white text-4xl max-w-3xl leading-none mb-8 md:text-6xl" transition:name="main-title">CONSTRUYENDO <br> <span class="text-slate-500 italic">ADN INDUSTRIAL</span></h1>
+            </div>
+        </section>
+        <section class="relative -mt-16 z-20 px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+                {
+                    stats.map(stat =>(
+                        <div class="bg-yellow-500 p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center group lg:hover:bg-slate-900 transition-colors duration-500">
+                            <span class="font-heading text-4xl md:text-6xl font-black text-slate-900 lg:group-hover:text-yellow-500 transition-colors">{stat.value}</span>
+                            <span class="font-heading text-[10px] md:text-xs font-bold text-slate-800 lg:group-hover:text-white mt-2 tracking-widest">{stat.label}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+        <section class="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+                <h3 class="font-heading font-black text-3xl text-slate-900 mb-8">Nuestra filosofia de trabajo</h3>
+                <p class="font-body text-slate-600 text-lg leading-relaxed mb-6">Fundada en el corazón del Polo Industrial santafesino, <strong class="text-yellow-600">Stralla Vial</strong> nació con la misión de profesionalizar la infraestructura vial y logística de la región. No solo movemos tierra o vertemos asfalto; diseñamos las venas por donde circula la producción de nuestro país.</p>
+                <p class="font-body text-slate-600 text-lg leading-relaxed">Nuestra ventaja competitiva reside en el control total del proceso: poseemos flota propia de última generación y un equipo de ingeniería que supervisa cada centímetro de compactación.</p>
+                <div class="mt-12 flex flex-wrap gap-3">
+                    {
+                        badges.map(badge => (
+                            <span class="border-2 border-slate-200 text-slate-500 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-tight lg:hover:border-yellow-500 lg:hover:text-slate-900 transition-all">{badge}</span>
+                        ))
+                    }
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4 translate-y-12">
+                    <Image src={heroImg} alt="Maquinaria Stralla" class="rounded-3xl h-64 w-full object-cover shadow-xl" />
+                </div>
+                <div class="bg-slate-100 p-8 rounded-3xl">
+                    <h4 class="font-heading font-black text-2xl text-slate-900">Misión</h4>
+                    <p class="text-sm text-slate-500 mt-2 italic">Garantizar durabilidad en cada m² intervenido.</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-yellow-500/10 p-8 rounded-3xl border-2 border-yellow-500/20">
+                    <h4 class="font-heading font-black text-2xl text-slate-900">Visión</h4>
+                    <p class="text-sm text-slate-500 mt-2 italic">Liderar la transformación vial del litoral argentino.</p>
+                </div>
+                <Image src={heroImg} alt="Maquinaria Stralla" class="rounded-3xl h-80 w-full object-cover shadow-xl" />
+            </div>
+            <div class="py-24 bg-slate-50 border-y border-slate-200">
+                <div class="max-w-7xl mx-auto px-6 text-center">
+                    <h3 class="font-heading text-slate-400 font-bold uppercase tracking-[0.5em] text-sm mb-16 underline decoration-yellow-500 decoration-4 underline-offset-8">Principios Operativos</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                        <div>
+                            <div class="text-yellow-600 font-black text-6xl mb-4 opacity-30">01</div>
+                            <h4 class="font-heading font-black text-xl uppercase mb-2">Seguridad Primero</h4>
+                            <p class="text-sm text-slate-500">Protocolos rigurosos para la protección de nuestro personal y el entorno.</p>
+                        </div>
+                        <div>
+                            <div class="text-yellow-600 font-black text-6xl mb-4 opacity-30">02</div>
+                            <h4 class="font-heading text-xl font-black mb-2 uppercase">Tecnología de Punta</h4>
+                            <p class="text-slate-500 text-sm">Nivelación láser y maquinaria con telemetría para precisión absoluta.</p>
+                        </div>
+                        <div>
+                            <div class="text-yellow-600 font-black text-6xl mb-4 opacity-30">03</div>
+                            <h4 class="font-heading text-xl font-black mb-2 uppercase">Compromiso Pluvial</h4>
+                            <p class="text-slate-500 text-sm">Ingeniería hidráulica responsable en cada desarrollo de suelo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <Banner />
+    </main>
+    <Footer />
+</Layout>
