@@ -10,6 +10,7 @@ import serviceVial from "../assets/service-vial.webp";
 
 const detailedServices = [
   {
+    id: 1,
     title: "Ingeniería y Pavimentación Vial",
     description: "Especialistas en la ejecución de carpetas asfálticas en caliente, hormigón de alta resistencia para tránsito pesado y bacheo profundo. Realizamos el ciclo completo: desde el diseño de la traza hasta la señalización final.",
     features: ["Asfalto en caliente", "Pavimentos de hormigón H30", "Señalización vial reflectiva"],
@@ -17,6 +18,7 @@ const detailedServices = [
     reversed: false
   },
   {
+    id: 2,
     title: "Movimiento de Suelos y Nivelación",
     description: "Contamos con tecnología de nivelación láser y GPS para garantizar precisiones milimétricas en grandes superficies. Ideal para plataformas logísticas, naves industriales y barrios cerrados.",
     features: ["Nivelación láser", "Compactación de suelos", "Excavaciones masivas"],
@@ -24,13 +26,40 @@ const detailedServices = [
     reversed: true
   },
   {
+    id: 3,
     title: "Alquiler de Maquinaria (Rent-Service)",
     description: "Ofrecemos soluciones flexibles de alquiler de flota pesada con o sin operador. Todos nuestros equipos cuentan con certificado de mantenimiento y seguro técnico, garantizando operatividad 24/7 en su obra.",
     features: ["Equipos Caterpillar/John Deere", "Logística propia de traslado", "Asistencia mecánica en obra"],
     image: serviceVial,
     reversed: false
+  },
+  {
+    id: 4,
+    title: "Obras Hidráulicas",
+    description: "Construcción y mantenimiento de sistemas de agua y saneamiento.",
+    features: ["Construcción de sistemas de agua", "Mantenimiento de sistemas de agua", "Construcción de sistemas de saneamiento"],
+    image: serviceVial,
+    reversed: true
+  },
+  {
+    id: 5,
+    title: "Izajes de Carga",
+    description: "Izajes de carga pesada con grúas de alta capacidad.",
+    features: ["Izajes de carga pesada", "Grúas de alta capacidad", "Izajes de carga pesada"],
+    image: serviceVial,
+    reversed: false
+  },
+  {
+    id: 6,
+    title: "Transporte de Maquinaria",
+    description: "Transporte de maquinaria pesada con grúas de alta capacidad.",
+    features: ["Transporte de maquinaria", "Grúas de alta capacidad", "Transporte de maquinaria"],
+    image: serviceVial,
+    reversed: true
   }
 ];
+
+
 ---
 
 <Layout title="Servicios" transition:animate="fade">
@@ -45,9 +74,10 @@ const detailedServices = [
                 <p class="font-body text-slate-400 text-xl max-w-2xl mx-auto"> Infraestructura robusta y servicios de ingenieria adaptados a las exigencias del mercado industrial actual.</p>
             </div>
         </section>
-        <section class="py-24 space-y-32">
-            {detailedServices.map((service) => (
-                <div class="max-w-7xl mx-auto px-6">
+          {detailedServices.map((service) => (
+        <section class="py-24 space-y-32" id={`service-${service.id}`}>
+          
+                <div class="max-w-7xl mx-auto px-6"  title={`${service.title}`}>
                 <div class={`flex flex-col ${service.reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 lg:gap-20`}>
                     
                     <div class="w-full md:w-1/2 relative">
@@ -67,7 +97,7 @@ const detailedServices = [
                     <ul class="space-y-4">
                         {service.features.map(feature => (
                         <li class="flex items-center gap-3 font-heading font-bold text-slate-800">
-                            <svg class="w-6 h-6 text-vial-yellow" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
                             {feature}
@@ -77,8 +107,9 @@ const detailedServices = [
                     </div>
                 </div>
                 </div>
-            ))}
+            
         </section>
+        ))}
         <Banner />
     </main>
     <Footer />
