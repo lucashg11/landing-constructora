@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @import "tailwind-animations";
+@import "@fontsource/inter";
+@import "@fontsource-variable/montserrat";
+
+@theme {
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
