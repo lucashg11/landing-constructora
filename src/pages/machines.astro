@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/sections/Navbar.astro";
+import Footer from "../components/sections/Footer.astro";
+import Banner from "../components/ui/Banner.astro";
+import FleetPaver from "../assets/fleet-paver.webp"
+const machines = [
+{
+    id: "EQ-01",
+    name: "Terminadora de Asfalto",
+    model: "Vögele Super 1900-3",
+    specs: { peso: "20.1 TN", potencia: "142 kW", ancho: "Hasta 8.5m" },
+    description: "Equipada con nivelación electrónica para carpetas asfálticas de alta precisión en autopistas y naves logísticas.",
+    image: FleetPaver
+  },
+  {
+    id: "EQ-02",
+    name: "Motoniveladora",
+    model: "Caterpillar 140K",
+    specs: { peso: "17.5 TN", potencia: "128 kW", cuchilla: "3.7m" },
+    description: "Ideal para movimiento de suelos, perfilado y nivelación de subrasantes con preinstalación para GPS/Láser.",
+    image: FleetPaver
+  },
+  {
+    id: "EQ-03",
+    name: "Excavadora sobre Orugas",
+    model: "Volvo EC210D",
+    specs: { peso: "22.3 TN", potencia: "123 kW", balde: "1.22 m³" },
+    description: "Alta capacidad de excavación y carga para zanjeo profundo, canales hidráulicos y demolición industrial.",
+    image: FleetPaver
+  },
+  {
+    id: "EQ-04",
+    name: "Rodillo Compactador Doble",
+    model: "Hamm HD 110",
+    specs: { peso: "10.5 TN", potencia: "100 kW", tambor: "1.68m" },
+    description: "Compactación vibratoria de alta frecuencia, indispensable para sellado y terminación de mezclas asfálticas.",
+    image: FleetPaver
+  }
+]
+---
+
+<Layout title="Maquinaria">
+    <Navbar />
+    <main class="bg-slate-100 ">
+        <header class="bg-slate-950 pt-64 pb-10 text-center px-6 border-b-8 border-yellow-500">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="font-heading text-6xl md:text-8xl font-black text-white uppercase tracking-tigther" transition:name="main-title">Nuestra <span class="text-yellow-500">Flota</span></h1>
+                <p class="font-body text-slate-400 text-lg md:text-xl mt-6 max-w-2xl mx-auto">Equipos de ultima generacion sometidos a rigurosos standares de mantenimiento para garantizar operatividad 24/7 en tu obra.</p>
+            </div>
+        </header>
+
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {
+                        machines.map((machine) => (
+                            <div class="bg-white rounded-3xl shadow-xl border border-slate-200  overflow-hidden flex flex-col sm:flex-row group lg:hover:shadow-2xl lg:hover:border-yellow-500 transition-all duration-300">
+                                <div class="sm:w-2/5 h-64 sm:h-auto bg-slate-200 relative overflow-hidden">
+                                    <Image src={machine.image} alt={machine.name} class="w-full h-full object-cover mix-blend-multiply lg:group-hover:scale-110 transition-transform duration-700"  loading="eager"/>
+                                    <span class="absolute top-4 left-4 bg-slate-900 text-yellow-500 font-mono text-xs font-bold px-3 py-1 rounded">{machine.id}</span>
+                                </div>
+                                <div class="sm:w-3/5 p-8 flex-col flex justify-between">
+                                    <div>
+                                        <h2 class="font-heading text-2xl font-black text-slate-900 uppercase leading-tight mb-1">{machine.name}</h2>
+                                        <h3 class="font-heading text-yellow-500 text-lg font-bold ,mb-4">{machine.model}</h3>
+                                        <p class="font-body text-slate-600 text-sm leading-relaxed mb-6">{machine.description}</p>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 ">
+                                       {
+                                        Object.entries(machine.specs).map(([key, value]) => (
+                                            <div class="bg-slate-50 rounded-lg p-2 text-center border border-slate-100 lg:group-hover:bg-slate-900 lg:group-hover:border-slate-900 transition-colors duration-300">
+                                                <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-widest lg:group-hover:text-yellow-500">{key}</span>
+                                                <span class="block text-sm font-black text-slate-900 mt-1 lg:group-hover:text-white">{value}</span>
+                                            </div>
+                                        ))
+                                       }
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+    <Banner />
+    <Footer />
+</Layout>
+    
